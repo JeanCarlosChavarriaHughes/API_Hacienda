@@ -21,4 +21,6 @@ jobs:
         with:
           php-version: '8.3'
       - run: composer install --no-interaction --prefer-dist
+      - name: Install PHPStan globally
+        run: composer global require phpstan/phpstan
       - run: vendor/bin/phpstan analyse --error-format=table

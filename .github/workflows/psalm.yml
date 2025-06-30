@@ -20,4 +20,6 @@ jobs:
         with:
           php-version: '8.3'
       - run: composer install --no-interaction --prefer-dist
+      - name: Install Psalm globally
+        run: composer global require vimeo/psalm
       - run: vendor/bin/psalm --output-format=console
