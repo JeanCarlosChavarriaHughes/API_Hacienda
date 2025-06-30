@@ -22,4 +22,4 @@ jobs:
       - run: composer install --no-interaction --prefer-dist
       - name: Install Psalm globally
         run: composer global require vimeo/psalm
-      - run: vendor/bin/psalm --output-format=console
+      - run: ~/.composer/vendor/bin/psalm --output-format=console
