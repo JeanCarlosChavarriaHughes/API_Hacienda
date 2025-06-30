@@ -1,0 +1,24 @@
+name: PHPStan
+
+on:
+  push:
+    branches: [ "dev", "master", "v4.4", "feature/ossar-test" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "dev" ]
+  schedule:
+    - cron: '44 9 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - run: composer install --no-interaction --prefer-dist
+      - run: vendor/bin/phpstan analyse --error-format=table

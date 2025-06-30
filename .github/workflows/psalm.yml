@@ -1,0 +1,23 @@
+name: Psalm
+
+on:
+  push:
+    branches: [ "dev", "master", "v4.4", "feature/ossar-test" ]
+  pull_request:
+    branches: [ "dev" ]
+  schedule:
+    - cron: '44 9 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  psalm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - run: composer install --no-interaction --prefer-dist
+      - run: vendor/bin/psalm --output-format=console
