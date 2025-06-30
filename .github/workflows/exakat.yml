@@ -20,5 +20,5 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Run Exakat analysis
         run: |
-          docker run --rm -v ${{ github.workspace }}:/project exakat/exakat exakat project -p myproject -R /project
-          docker run --rm -v ${{ github.workspace }}:/project exakat/exakat exakat report -p myproject -format Text
+          docker run --platform linux/amd64 --rm -v ${{ github.workspace }}:/project exakat/exakat exakat project -p myproject -R /project
+          docker run --platform linux/amd64 --rm -v ${{ github.workspace }}:/project exakat/exakat exakat report -p myproject -format Text
