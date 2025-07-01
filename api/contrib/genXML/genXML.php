@@ -4604,20 +4604,6 @@ function genXMLFee()
         <NombreComercial>' . $receptorNombreComercial . '</NombreComercial>';
     }
 
-    if (isset($receptorProvincia) && $receptorProvincia != '' && $receptorCanton != '' && $receptorDistrito != '' && $receptorOtrasSenas != '') {
-        $xmlString .= '
-        <Ubicacion>
-            <Provincia>' . $receptorProvincia . '</Provincia>
-            <Canton>' . $receptorCanton . '</Canton>
-            <Distrito>' . $receptorDistrito . '</Distrito>';
-        if ($receptorBarrio != '') {
-            $xmlString .= '<Barrio>' . $receptorBarrio . '</Barrio>';
-        }
-        $xmlString .= '
-            <OtrasSenas>' . $receptorOtrasSenas . '</OtrasSenas>
-        </Ubicacion>';
-    }
-
     if ($receptorOtrasSenasExtranjero != '' && strlen($receptorOtrasSenasExtranjero) <= RECEPTOROTRASSENASEXTRANJEROMAXSIZE) {
         $xmlString .= '
         <OtrasSenasExtranjero>'
