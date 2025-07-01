@@ -24,5 +24,14 @@ jobs:
           platforms: all
       - name: Run Exakat analysis
         run: |
-          docker run --rm -v ${{ github.workspace }}:/project exakat/exakat project -p crlibre_api_hacienda_php -R /project
-          docker run --rm -v ${{ github.workspace }}:/project exakat/exakat report -p crlibre_api_hacienda_php -format Text
+          docker run --rm \
+            -v ${{ github.workspace }}:/project \
+            -v ${{ github.workspace }}/.exakat:/usr/src/exakat/projects \
+            exakat/exakat \
+            project -p crlibre_api_hacienda_php -R /project
+
+          docker run --rm \
+            -v ${{ github.workspace }}:/project \
+            -v ${{ github.workspace }}/.exakat:/usr/src/exakat/projects \
+            exakat/exakat \
+            report -p crlibre_api_hacienda_php -format Text

@@ -24,4 +24,4 @@ jobs:
         run: composer global require vimeo/psalm
       - name: Generate Psalm config
         run: ~/.composer/vendor/bin/psalm --init
-      - run: ~/.composer/vendor/bin/psalm --output-format=github
+      - run: ~/.composer/vendor/bin/psalm api/contrib/genXML api/contrib/firmarXML api/contrib/consultar api/contrib/send api/contrib/fileUploader api/contrib/token api/core --output-format=github

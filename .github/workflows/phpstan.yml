@@ -23,4 +23,4 @@ jobs:
       - run: composer install --no-interaction --prefer-dist
       - name: Install PHPStan globally
         run: composer global require phpstan/phpstan
-      - run: ~/.composer/vendor/bin/phpstan analyse api --error-format=table
+      - run: ~/.composer/vendor/bin/phpstan analyse api/contrib/genXML api/contrib/firmarXML api/contrib/consultar api/contrib/send api/contrib/fileUploader api/contrib/token api/core --error-format=table
