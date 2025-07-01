@@ -23,5 +23,5 @@ jobs:
       - name: Install Psalm globally
         run: composer global require vimeo/psalm
       - name: Generate Psalm config
-        run: ~/.composer/vendor/bin/psalm --init --no-interaction  --no-progress
-      - run: ~/.composer/vendor/bin/psalm --output-format=console
+        run: ~/.composer/vendor/bin/psalm --init
+      - run: ~/.composer/vendor/bin/psalm --output-format=github
